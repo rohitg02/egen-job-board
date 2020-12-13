@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
@@ -9,30 +10,22 @@ import ThemedCheckbox from './ThemedCheckbox';
 import ThemeContext from '../contexts/ThemeContext';
 
 import { connect } from 'react-redux';
-import {fetchJobs} from '../actions/jobResultsActions';
+import { fetchJobs } from '../actions/jobResultsActions';
+import { updateFilter } from '../actions/searchBarActions';
 
 class SearchBar extends Component{
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      location: '',
-      full_time: false,
-      description: '',
-    }
-  }
 
   componentDidMount() {
-    const { fetchJobs } = this.props;
-    fetchJobs();
+    this.applyFilters();
   }
 
   handleChange = val => {
-    this.setState({...val});
+    const { setFilter } = this.props;
+    setFilter(val);
   }
 
   generateUrlFilters = () => {
-    const filters = {...this.state};
+    const { filters } = this.props;
     let filterString = '';
 
     for (let property in filters) {
@@ -55,7 +48,7 @@ class SearchBar extends Component{
   }
 
   render() {
-    const { description, location, full_time } = this.state;
+    const { filters: { description, location, full_time } } = this.props;
     return (
       <React.Fragment>
         <ThemeContext.Consumer>
@@ -92,6 +85,15 @@ class SearchBar extends Component{
 
 const mapDispatchToProps = dispatch => ({
   fetchJobs: (urlFilters) => dispatch(fetchJobs(urlFilters)),
+  setFilter: (filterval) => dispatch(updateFilter(filterval))
 });
 
-export default connect(null, mapDispatchToProps)(SearchBar);
+const mapStateToProps = state => ({
+  filters: state.searchBarReducer
+});
+
+SearchBar.propTypes = {
+  fetchJobs: PropTypes.func.isRequired,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);

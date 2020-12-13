@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { Container, Grid } from '@material-ui/core';
 import { connect } from 'react-redux';
-//Box, 
+//Box,
 import ThemedCompanyDetailsCard from './ThemedCompanyDetailsCard';
 
 const ViewJobDetails = ({ jobDetails }) => {
@@ -31,7 +31,7 @@ const ViewJobDetails = ({ jobDetails }) => {
 }
 
 const mapStateToProps = state => ({
-  jobDetails: state.jobDetail
+  jobDetails: state.jobResultsReducer.jobDetail
 });
 
 export default connect(mapStateToProps, null)(ViewJobDetails);

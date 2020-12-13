@@ -1,5 +1,5 @@
-
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
@@ -66,6 +66,18 @@ const ThemedSearchField = ({placeholder, value, onChangeHandler}) => {
       />
     </div>
   )
+}
+
+ThemedSearchField.propTypes ={
+  onChangeHandler: PropTypes.func,
+  placeholder: PropTypes.string,
+  value: PropTypes.string
+}
+
+ThemedSearchField.defaultProps ={
+  onChangeHandler: val => val,
+  placeholder: '',
+  value: ''
 }
 
 export default ThemedSearchField;

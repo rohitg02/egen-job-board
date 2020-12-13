@@ -1,4 +1,6 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -54,5 +56,9 @@ const ThemedCardJobDescription = ({job}) => {
     </Card>
   )
 }
+
+ThemedCardJobDescription.propTypes = {
+    job: PropTypes.isRequired
+};
 
 export default ThemedCardJobDescription;
