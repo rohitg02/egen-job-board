@@ -1,4 +1,6 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -54,5 +56,40 @@ const ViewJob = ({job, onClickHandler}) => {
     </Card>
   )
 }
+
+
+ViewJob.propTypes = {
+  onClickHandler: PropTypes.func,
+  job: PropTypes.shape({
+    id: PropTypes.string,
+    type: PropTypes.string,
+    url: PropTypes.string,
+    created_at: PropTypes.string,
+    company: PropTypes.string,
+    company_url: PropTypes.string,
+    location: PropTypes.string,
+    title: PropTypes.string,
+    description: PropTypes.string,
+    how_to_apply: PropTypes.string,
+    company_logo: PropTypes.string
+  })
+};
+
+ViewJob.defaultProps = {
+  onClickHandler: val => val,
+  job: {
+    id: "",
+    type: "",
+    url: "",
+    created_at: "",
+    company: "",
+    company_url: "",
+    location: "",
+    title: "",
+    description: "",
+    how_to_apply: "",
+    company_logo: ""
+  }
+};
 
 export default ViewJob;

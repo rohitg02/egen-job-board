@@ -1,8 +1,9 @@
 import React from 'react';
 import { Container, Grid } from '@material-ui/core';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { useHistory } from "react-router-dom";
-//Box, 
+//Box,
 import SearchBar from './SearchBar';
 import ViewJob from './ViewJob';
 
@@ -44,12 +45,20 @@ const Dashboard = ({getJobs, setJob}) => {
 }
 
 const mapStateToProps = state => ({
-  getJobs: () => state.jobs,
+  getJobs: () => state.jobResultsReducer.jobs,
 });
 
 const mapDispatchToProps = dispatch => ({
   setJob: (jobSelected) => dispatch(setJobDetail(jobSelected)),
 });
 
+Dashboard.propTypes = {
+  getJobs: PropTypes.func,
+  setJob: PropTypes.func.isRequired
+}
+
+Dashboard.defaultProps = {
+  getJobs: () => [],
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

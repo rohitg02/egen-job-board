@@ -1,5 +1,5 @@
-
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import InputBase from '@material-ui/core/InputBase';
@@ -68,6 +68,20 @@ const ThemedLocationField = ({placeholder, value, onChangeHandler}) => {
       />
     </div>
   )
+}
+
+ThemedLocationField.propTypes ={
+  onChangeHandler: PropTypes.func,
+  placeholder: PropTypes.string,
+  value: PropTypes.string
+}
+
+ThemedLocationField.defaultProps ={
+  onChangeHandler: function(val) {
+
+  },
+  placeholder: '',
+  value: ''
 }
 
 export default ThemedLocationField;
