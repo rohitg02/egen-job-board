@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Typography from '@material-ui/core/Typography';
-import Checkbox from '@material-ui/core/Checkbox';
+import { Checkbox, Typography } from '@material-ui/core';
 
 const ThemedCheckbox = ({onChangeHandler, label, value}) => {
   return (

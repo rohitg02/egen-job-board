@@ -60,6 +60,8 @@ const ViewJobDetails = ({ jobDetails }) => {
   const classes = useStyles();
   const themeContext= useContext(ThemeContext);
   const bull = <span className={classes.bullet}>•</span>;
+  const { company_logo, company, company_url, created_at,
+    type, title, location, description, how_to_apply } = jobDetails;
 
   return (
     <div>
@@ -70,22 +72,22 @@ const ViewJobDetails = ({ jobDetails }) => {
       >
         <Grid item xl={1} lg={1} md={1} sm={12} xs={12}>
           <img
-           src={jobDetails.company_logo}
+           src={company_logo}
            className={classes.logo}
            alt="new"
            />
         </Grid>
         <Grid item xl={10} lg={9} md={9} sm={12} xs={12}>
           <Typography className={`${classes.posTop} ${themeContext.card.cWhite}`}>
-            {jobDetails.company}
+            {company}
           </Typography>
           <Typography className={`${classes.posTop} cPurple`} variant="body2" component="p" color="textSecondary" >
-            {jobDetails.company_url}
+            {company_url}
           </Typography>
         </Grid>
         <Grid item  className={classes.pT30} xl={1} lg={2} md={2} sm={12} xs={12}>
           <Typography >
-            <Link target="_blank" rel="noreferrer" href={jobDetails.company_url} onClick={()=>{}}>
+            <Link target="_blank" rel="noreferrer" href={company_url} onClick={()=>{}}>
               Company Site
             </Link>
           </Typography>
@@ -97,13 +99,13 @@ const ViewJobDetails = ({ jobDetails }) => {
             <Box display="flex">
               <Box p={1} flexGrow={1}>
                 <Typography className={`${themeContext.card.text} ${classes.posTop}`}  variant="body2" component="p" color="textSecondary">
-                  {jobDetails.created_at} {bull} {jobDetails.type}
+                  {created_at} {bull} {type}
                 </Typography>
                 <Typography className={classes.titleJob} variant="h5" component="h3">
-                  {jobDetails.title}
+                  {title}
                 </Typography>
                 <Typography className={`cPurple ${classes.posTop}`} variant="body2" component="p" color="textSecondary">
-                  {jobDetails.location}
+                  {location}
                 </Typography>
               </Box>
               <Box p={1} className={classes.pTop50}>
@@ -112,7 +114,7 @@ const ViewJobDetails = ({ jobDetails }) => {
                 </Button>
               </Box>
             </Box>
-            <div dangerouslySetInnerHTML={{ __html: jobDetails.description }} />
+            <div dangerouslySetInnerHTML={{ __html: description }} />
           </CardContent>
         </Card>
         <br/>
@@ -121,7 +123,7 @@ const ViewJobDetails = ({ jobDetails }) => {
             <Typography className={classes.titleJob}>
                 How to Apply
             </Typography>
-              <div dangerouslySetInnerHTML={{ __html: jobDetails.how_to_apply }} />
+              <div dangerouslySetInnerHTML={{ __html: how_to_apply }} />
           </CardContent>
         </Card>
       </Grid>

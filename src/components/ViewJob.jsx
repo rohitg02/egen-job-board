@@ -46,7 +46,7 @@ const ViewJob = ({job, onClickHandler}) => {
   const themeContext= useContext(ThemeContext);
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
-
+  const { company_logo, created_at, type, title, company, location } = job;
   return (
     <Card
       onClick={() => onClickHandler(job)}
@@ -55,25 +55,25 @@ const ViewJob = ({job, onClickHandler}) => {
       <CardContent>
         <Fragment>
           <img
-           src={job.company_logo}
+           src={company_logo}
            className={classes.logo}
            alt="new"
            />
         </Fragment>
         <Typography className={`${classes.posTop} ${themeContext.card.text}`} variant="body2" component="p" color="textSecondary" >
-          {job.created_at} {bull} {job.type}
+          {created_at} {bull} {type}
         </Typography>
         <Typography className={`${classes.titleJob} ${themeContext.card.title}`} variant="subtitle1" component="h3">
-          {job.title}
+          {title}
         </Typography>
         <Typography className={`${classes.pos} ${themeContext.card.text}`} variant="body2" component="p" color="textSecondary">
-          {job.company}
+          {company}
         </Typography>
         <Typography variant="body2" component="p">
           <br />
         </Typography>
         <Typography className="cPurple" variant="body2" component="p">
-          {job.location}
+          {location}
         </Typography>
       </CardContent>
     </Card>
