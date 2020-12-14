@@ -20,10 +20,8 @@ const Dashboard = ({getJobs, setJob}) => {
 
   return (
     <React.Fragment>
-      <Container>
-          <Grid item lg={12} md={12} sm={12} xs={12}>
-            <SearchBar />
-          </Grid>
+      <SearchBar />
+      <Container className="mTop180">
           {
             jobs &&
             <Grid container spacing={3}>

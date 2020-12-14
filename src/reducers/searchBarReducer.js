@@ -5,7 +5,7 @@ const initState = {
   full_time: false,
   description: '',
   lat: '',
-  lon: ''
+  long: ''
 };
 
 const searchBarReducer = (state = initState, action) => {

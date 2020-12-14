@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import InputBase from '@material-ui/core/InputBase';
+
 import { fade, makeStyles } from '@material-ui/core/styles';
 
 //import './styles/themedSearchField.scss';
@@ -23,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
       width: 'auto',
     },
   },
-  searchIcon: {
+  locationIcon: {
     padding: theme.spacing(0, 2),
     height: '100%',
     position: 'absolute',
@@ -35,9 +36,12 @@ const useStyles = makeStyles((theme) => ({
   inputRoot: {
     color: 'inherit',
   },
+  iconCurrentPosition: {
+    marginLeft: 20,
+    marginTop: 5
+  },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
     transition: theme.transitions.create('width'),
     width: '100%',
@@ -53,7 +57,7 @@ const ThemedLocationField = ({placeholder, value, onChangeHandler}) => {
 
   return (
     <div className={classes.search}>
-      <div className={classes.searchIcon}>
+      <div className={`${classes.locationIcon} ${classes.hover}`}>
         <LocationOnIcon />
       </div>
       <InputBase
