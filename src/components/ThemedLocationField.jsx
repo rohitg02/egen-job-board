@@ -6,8 +6,6 @@ import InputBase from '@material-ui/core/InputBase';
 
 import { fade, makeStyles } from '@material-ui/core/styles';
 
-//import './styles/themedSearchField.scss';
-
 const useStyles = makeStyles((theme) => ({
   search: {
     position: 'relative',
