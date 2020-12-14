@@ -1,9 +1,10 @@
 body {
   background-color: #F5F6F8;
+  font-size: 16px;
 }
 
 .purpleBg {
-  background-color: #5865E0;
+  background-color: #3f51b5;
 }
 
 .grayBg {
@@ -29,9 +30,63 @@ body {
 }
 
 .cWhite{
-  color: white;
+  color: #FFFFFF !important;
 }
 
-// .cInherit{
-//   background-color: inherit;
-// }
+.cPurple {
+  color: #3f51b5 !important;
+}
+
+.cBlack {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.cGray {
+  color: #F5F6F8 !important;
+}
+
+.inlineFlex{
+  display: inline-flex !important;
+}
+
+.w100 {
+  width: 100% !important;
+}
+
+.jCenter {
+  justify-content: center;
+}
+
+.cardHeader {
+  display: inline-flex;
+  width: inherit;
+  margin-top: 50px !important;
+  padding: 5px;
+  position: fixed;
+  background-color: white;
+  margin-left: auto;
+  z-index: 1100;
+  border-radius: 5px;
+  margin-right: auto;
+  max-width: 1280px !important;
+}
+
+.mTop180{
+  margin-top: 180px;
+}
+
+.mTP{
+  p{
+    margin-top: 9px;
+  }
+}
+
+.borderRight {
+  border-right: 1px solid;
+}
+
+.locationIcon{
+  &:hover{
+    cursor: pointer;
+  }
+}

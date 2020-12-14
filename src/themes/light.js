@@ -1,7 +1,12 @@
-const dark = {
+const light = {
   theme: 'light',
   backgroundColor: '#F5F6F8',
-  cardBackgroundColor: 'whiteBg'
+  card: {
+    background: 'whiteBg',
+    title: 'cBlack',
+    location: 'cPurple',
+    text: 'cBlack'
+  }
 };
 
-export default dark;
+export default light;

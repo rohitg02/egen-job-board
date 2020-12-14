@@ -1,11 +1,9 @@
-import React, { useContext } from 'react';
+import React, { useContext, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-//import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
 import ThemeContext from '../contexts/ThemeContext';
@@ -13,6 +11,7 @@ import ThemeContext from '../contexts/ThemeContext';
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
+    height: 250
   },
   bullet: {
     display: 'inline-block',
@@ -25,8 +24,21 @@ const useStyles = makeStyles({
   pos: {
     marginBottom: 12,
   },
+  posTop:{
+    marginTop: 12,
+  },
   onHover : {
     cursor: 'pointer'
+  },
+  logo: {
+    height: '25px',
+    width: '50px'
+  },
+  titleJob: {
+    fontSize: '18px',
+    fontWeight: 500,
+    marginTop: 2,
+    marginBottom: 2
   }
 });
 
@@ -34,25 +46,36 @@ const ViewJob = ({job, onClickHandler}) => {
   const themeContext= useContext(ThemeContext);
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
+
   return (
-    <Card onClick={() => onClickHandler(job)} className={`${classes.onHover} ${themeContext.cardBackgroundColor} ${classes.root}`}>
+    <Card
+      onClick={() => onClickHandler(job)}
+      className={`${classes.onHover} ${themeContext.card.background} ${classes.root}`}
+    >
       <CardContent>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
+        <Fragment>
+          <img
+           src={job.company_logo}
+           className={classes.logo}
+           alt="new"
+           />
+        </Fragment>
+        <Typography className={`${classes.posTop} ${themeContext.card.text}`} variant="body2" component="p" color="textSecondary" >
+          {job.created_at} {bull} {job.type}
+        </Typography>
+        <Typography className={`${classes.titleJob} ${themeContext.card.title}`} variant="subtitle1" component="h3">
           {job.title}
         </Typography>
-        <Typography variant="h5" component="h2">
-          {job.title}
-        </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          {bull}
+        <Typography className={`${classes.pos} ${themeContext.card.text}`} variant="body2" component="p" color="textSecondary">
+          {job.company}
         </Typography>
         <Typography variant="body2" component="p">
           <br />
         </Typography>
+        <Typography className="cPurple" variant="body2" component="p">
+          {job.location}
+        </Typography>
       </CardContent>
-      <CardActions>
-        {job.location}
-      </CardActions>
     </Card>
   )
 }
