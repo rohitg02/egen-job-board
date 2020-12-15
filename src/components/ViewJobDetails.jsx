@@ -40,9 +40,6 @@ const useStyles = makeStyles({
   jCenter: {
     'justify-content': 'center'
   },
-  mWidth: {
-    maxWidth: 1280
-  },
   pTop50: {
     paddingTop: 60
   },
@@ -55,7 +52,6 @@ const useStyles = makeStyles({
     paddingTop: 30
   }
 });
-//className={`${classes.dFlex} ${classes.p0}`
 const ViewJobDetails = ({ jobDetails }) => {
   const classes = useStyles();
   const themeContext= useContext(ThemeContext);
