@@ -47,6 +47,7 @@ const ViewJob = ({job, onClickHandler}) => {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
   const { company_logo, created_at, type, title, company, location } = job;
+  
   return (
     <Card
       onClick={() => onClickHandler(job)}
