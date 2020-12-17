@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ThemedSearchField should render ThemedSearchField component and match the snapshot 1`] = `ShallowWrapper {}`;
+
+exports[`ThemedSearchField should render ToggleThemeSwitch component 1`] = `ShallowWrapper {}`;
+
+exports[`ToggleThemeSwitch component should render ToggleThemeSwitch component 1`] = `ShallowWrapper {}`;

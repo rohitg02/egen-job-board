@@ -7,6 +7,7 @@ const ThemedCheckbox = ({onChangeHandler, label, value}) => {
   return (
     <React.Fragment>
       <Checkbox
+        if="themedCheckbox"
         checked={value}
         color="primary"
         onChange={() => onChangeHandler(!value)}
@@ -26,7 +27,7 @@ ThemedCheckbox.propTypes ={
 }
 
 ThemedCheckbox.defaultProps ={
-  onChangeHandler: val => val,
+  onChangeHandler: () => {},
   label: '',
   value: false
 }

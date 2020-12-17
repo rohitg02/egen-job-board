@@ -11,6 +11,7 @@ const ToggleThemeSwitch = () => {
     <React.Fragment>
       <WbSunnyRoundedIcon/>
         <Switch
+           id="themeSwitch"
            checked={sampleContext.theme === 'light' ? false : true }
            onChange={sampleContext.toggleTheme}
            size="small"

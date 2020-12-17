@@ -1,8 +1,9 @@
-import { FETCH_JOBS, SET_JOB_DETAIL } from '../actions/types';
+import { FETCH_JOBS, SET_JOB_DETAIL, FLAG_API_REQUEST, UNFLAG_API_REQUEST } from '../actions/types';
 
 const initState = {
   jobs: [],
-  jobDetail: {}
+  jobDetail: {},
+  fetching: false,
 };
 
 const jobResultsReducer = (state = initState, action) => {
@@ -17,6 +18,18 @@ const jobResultsReducer = (state = initState, action) => {
         return {
           ...state,
           jobDetail: {...action.payload}
+        }
+      }
+      case FLAG_API_REQUEST: {
+        return {
+          ...state,
+          fetching: true
+        }
+      }
+      case UNFLAG_API_REQUEST: {
+        return {
+          ...state,
+          fetching: false
         }
       }
       default:

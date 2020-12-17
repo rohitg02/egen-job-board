@@ -1,3 +1,5 @@
 export const FETCH_JOBS = 'FETCH_JOBS';
 export const SET_JOB_DETAIL = 'SET_JOB_DETAIL';
 export const UPDATE_FILTERS = 'UPDATE_FILTERS';
+export const FLAG_API_REQUEST = 'FLAG_API_REQUEST';
+export const UNFLAG_API_REQUEST = 'UNFLAG_API_REQUEST';

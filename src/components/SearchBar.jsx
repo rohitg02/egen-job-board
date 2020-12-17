@@ -13,7 +13,7 @@ import { connect } from 'react-redux';
 import { fetchJobs } from '../actions/jobResultsActions';
 import { updateFilter } from '../actions/searchBarActions';
 
-class SearchBar extends Component{
+export class SearchBar extends Component{
   componentDidMount() {
     this.applyFilters();
   }
