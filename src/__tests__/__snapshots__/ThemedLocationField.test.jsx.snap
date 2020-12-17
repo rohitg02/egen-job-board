@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ThemedLocationField should render ThemedLocationField component and match the snapshot 1`] = `ShallowWrapper {}`;
+
+exports[`ThemedLocationField should render ThemedSearchField component with props and match the snapshot 1`] = `ShallowWrapper {}`;

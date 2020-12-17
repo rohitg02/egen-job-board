@@ -59,6 +59,7 @@ const ThemedLocationField = ({placeholder, value, onChangeHandler}) => {
         <LocationOnIcon />
       </div>
       <InputBase
+        id="searchLocationField"
         placeholder={placeholder}
         value={value}
         classes={{
@@ -79,9 +80,7 @@ ThemedLocationField.propTypes ={
 }
 
 ThemedLocationField.defaultProps ={
-  onChangeHandler: function(val) {
-
-  },
+  onChangeHandler: () => {},
   placeholder: '',
   value: ''
 }

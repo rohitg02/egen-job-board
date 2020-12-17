@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Grid } from '@material-ui/core';
+import { Container, Grid, CircularProgress } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { useHistory } from "react-router-dom";
@@ -9,7 +9,7 @@ import ViewJob from './ViewJob';
 
 import { setJobDetail } from '../actions/jobResultsActions';
 
-const Dashboard = ({getJobs, setJob}) => {
+export const Dashboard = ({getJobs, setJob, isLoading}) => {
   const jobs = getJobs();
   const history = useHistory();
 
@@ -17,11 +17,19 @@ const Dashboard = ({getJobs, setJob}) => {
     setJob(jobSelected);
     history.push('/job');
   }
-
   return (
     <React.Fragment>
       <SearchBar />
-      <Container className="mTop180">
+      {isLoading() &&
+        (
+          <Container className="mTop180">
+            <Grid container spacing={3} className="jCenter">
+              <CircularProgress/>
+            </Grid>
+          </Container>
+        )
+      }
+      {!isLoading() && <Container className="mTop180">
           {
             jobs &&
             <Grid container spacing={3}>
@@ -37,13 +45,14 @@ const Dashboard = ({getJobs, setJob}) => {
           {
             !jobs && <div>No Jobs found</div>
           }
-      </Container>
+      </Container>}
     </React.Fragment>
   );
 }
 
 const mapStateToProps = state => ({
   getJobs: () => state.jobResultsReducer.jobs,
+  isLoading: () => state.jobResultsReducer.fetching,
 });
 
 const mapDispatchToProps = dispatch => ({

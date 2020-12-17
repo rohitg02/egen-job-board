@@ -54,6 +54,7 @@ const ThemedSearchField = ({placeholder, value, onChangeHandler}) => {
         <SearchIcon />
       </div>
       <InputBase
+        id="searchField"
         placeholder={placeholder}
         value={value}
         classes={{
@@ -74,7 +75,7 @@ ThemedSearchField.propTypes ={
 }
 
 ThemedSearchField.defaultProps ={
-  onChangeHandler: val => val,
+  onChangeHandler: () => {},
   placeholder: '',
   value: ''
 }

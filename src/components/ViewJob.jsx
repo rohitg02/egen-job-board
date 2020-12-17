@@ -47,9 +47,10 @@ const ViewJob = ({job, onClickHandler}) => {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
   const { company_logo, created_at, type, title, company, location } = job;
-  
+
   return (
     <Card
+      id="viewJobCard"
       onClick={() => onClickHandler(job)}
       className={`${classes.onHover} ${themeContext.card.background} ${classes.root}`}
     >
@@ -100,7 +101,7 @@ ViewJob.propTypes = {
 };
 
 ViewJob.defaultProps = {
-  onClickHandler: val => val,
+  onClickHandler: () => {},
   job: {
     id: "",
     type: "",
